@@ -52,15 +52,14 @@ export default class MaskedInput extends Component<IMaskedInputProps, IMaskedInp
 	}
 
 	public render(): ReactNode {
+		const { mask, ...textInputProps } = this.props
+		
 		return (
 			<TextInput
+				{...textInputProps}
 				value={this.state.value}
-				placeholder={this.props.placeholder}
-				placeholderTextColor={this.props.placeholderTextColor}
 				onChangeText={(text) => this.onTextChange(text)}
-				style={this.props.style}
-				onSubmitEditing={this.props.onSubmitEditing}
-				keyboardType={this.props.keyboardType}/>
+			/>
 		);
 	}
 }
